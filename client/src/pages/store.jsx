@@ -1,6 +1,7 @@
 
 
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const categories = [
@@ -73,6 +74,8 @@ const Store = () => {
     }
   };
 
+
+  const navigate = useNavigate();
   // Pagination calculations
   const indexOfLast = currentPage * itemsPerPage;
   const indexOfFirst = indexOfLast - itemsPerPage;
@@ -121,6 +124,7 @@ const Store = () => {
             currentItems.map((product) => (
               <div
                 key={product._id}
+                
                 className=" h-[310px] relative group bg-gray-50 rounded-xl shadow hover:shadow-lg transition-all duration-300 p-4 cursor-pointer"
                 onMouseEnter={() => setHoveredProductId(product._id)}
                 onMouseLeave={() => setHoveredProductId(null)}
@@ -153,11 +157,11 @@ const Store = () => {
                   }`}
                 >
                   <button
-                    // onClick={() => alert(`Added "${product.name}" to cart!`)}
-                    className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition"
-                  >
-                    Select Option
-                  </button>
+  onClick={() => navigate(`/products/${product._id}`)}
+  className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition"
+>
+  Select Option
+</button>
                 </div>
               </div>
             ))

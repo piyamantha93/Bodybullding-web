@@ -30,9 +30,10 @@ const Navbar = ({ brand = "MyStore", links = [], cartCount = 0 }) => {
         {/* Icons */}
         <div className="flex items-center space-x-8 mt-4 md:mt-0">
           {/* User Icon */}
-          <Link to="/login" className="text-gray-700 hover:text-gray-500">
-            <i className="fas fa-user text-xl"></i>
-          </Link>
+        <Link to="/login" className="text-gray-700 hover:text-gray-500">
+          <i className="fas fa-user text-xl"></i>
+        </Link>
+
 
           {/* Cart Icon with count */}
           <Link to="/cart" className="relative text-gray-700 hover:text-gray-500">
